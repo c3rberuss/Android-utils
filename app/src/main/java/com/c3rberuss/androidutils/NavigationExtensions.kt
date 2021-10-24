@@ -33,6 +33,43 @@ fun Fragment.navigate(destination: NavDirections) {
 }
 
 fun Fragment.navigateOff(destination: Int) {
-    findNavController().popBackStack(destination, false)
-    findNavController().navigate(destination)
+
+    try {
+        with(findNavController()) {
+            popBackStack(graph.id, true)
+            navigate(destination)
+        }
+    } catch (e: Exception) {
+        Log.e("Navigation", "${e.message}")
+    }
+}
+
+fun Fragment.navigateOff(destination: NavDirections) {
+
+    try {
+        with(findNavController()) {
+            popBackStack(graph.id, true)
+            navigate(destination)
+        }
+    } catch (e: Exception) {
+        Log.e("Navigation", "${e.message}")
+    }
+}
+
+fun NavController.navigateOff(destination: Int) {
+    try {
+        popBackStack(graph.id, true)
+        navigate(destination)
+    } catch (e: Exception) {
+        Log.e("Navigation", "${e.message}")
+    }
+}
+
+fun NavController.navigateOff(destination: NavDirections) {
+    try {
+        popBackStack(graph.id, true)
+        navigate(destination)
+    } catch (e: Exception) {
+        Log.e("Navigation", "${e.message}")
+    }
 }
