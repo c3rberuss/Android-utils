@@ -1,19 +1,24 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'maven-publish'
 }
+
+group = 'com.github.jitpack'
+version = '1.0'
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.c3rberuss.ktextension"
         minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -32,13 +37,37 @@ android {
 }
 
 dependencies {
+
+    //FIREBASE
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.0'
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.1'
+
+    //NAVIGATION COMPONENT
+    def nav_version = "2.3.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    testImplementation 'junit:junit:'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
 
-    implementation project(":androidutils")
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.jitpack'
+                artifactId = 'android-utils'
+                version = '1.0'
+            }
+        }
+    }
 }
