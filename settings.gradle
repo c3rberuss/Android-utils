@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Kotlin Android Extensions"
 include ':app'
+include ':androidutils'
