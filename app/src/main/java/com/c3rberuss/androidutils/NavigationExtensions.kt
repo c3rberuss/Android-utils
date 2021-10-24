@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 
@@ -36,8 +37,11 @@ fun Fragment.navigateOff(destination: Int) {
 
     try {
         with(findNavController()) {
-            popBackStack(graph.id, true)
-            navigate(destination)
+            navigate(
+                destination,
+                null,
+                NavOptions.Builder().setPopUpTo(graph.id, true).build()
+            )
         }
     } catch (e: Exception) {
         Log.e("Navigation", "${e.message}")
@@ -48,8 +52,10 @@ fun Fragment.navigateOff(destination: NavDirections) {
 
     try {
         with(findNavController()) {
-            popBackStack(graph.id, true)
-            navigate(destination)
+            navigate(
+                destination,
+                NavOptions.Builder().setPopUpTo(graph.id, true).build()
+            )
         }
     } catch (e: Exception) {
         Log.e("Navigation", "${e.message}")
@@ -58,8 +64,11 @@ fun Fragment.navigateOff(destination: NavDirections) {
 
 fun NavController.navigateOff(destination: Int) {
     try {
-        popBackStack(graph.id, true)
-        navigate(destination)
+        navigate(
+            destination,
+            null,
+            NavOptions.Builder().setPopUpTo(graph.id, true).build()
+        )
     } catch (e: Exception) {
         Log.e("Navigation", "${e.message}")
     }
@@ -67,8 +76,10 @@ fun NavController.navigateOff(destination: Int) {
 
 fun NavController.navigateOff(destination: NavDirections) {
     try {
-        popBackStack(graph.id, true)
-        navigate(destination)
+        navigate(
+            destination,
+            NavOptions.Builder().setPopUpTo(graph.id, true).build()
+        )
     } catch (e: Exception) {
         Log.e("Navigation", "${e.message}")
     }
