@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "Sleep"
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
       - uses: badasintended/autojitpack@v1
         with:
           version: ${{ github.event.release.tag_name }}
