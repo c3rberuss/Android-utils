@@ -84,3 +84,19 @@ fun NavController.navigateOff(destination: NavDirections) {
         Log.e("Navigation", "${e.message}")
     }
 }
+
+fun NavController.back(){
+    try{
+        this.navigateUp()
+    }catch (e: Exception){
+        Log.e("Navigation", "${e.message}")
+    }
+}
+
+fun Fragment.back(){
+    try{
+        findNavController().navigateUp()
+    }catch (e: Exception){
+        Log.e("Navigation", "${e.message}")
+    }
+}

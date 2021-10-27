@@ -38,3 +38,8 @@ fun <T> MutableList<T>.addAllIfNotExists(newItems: List<T>) {
         this.addIfNotExists(newItem)
     }
 }
+
+fun <V, T> List<T>.sortByList(newOrder: List<V>, associateItemBy: (item: T) -> V): List<T> {
+    val itemsAssociated = this.associateBy { associateItemBy(it) }
+    return newOrder.map { itemsAssociated[it]!! }
+}
