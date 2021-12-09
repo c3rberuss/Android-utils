@@ -1,5 +1,8 @@
 package com.c3rberuss.androidutils
 
+import android.annotation.SuppressLint
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 val String.dateFormat: String
@@ -198,3 +201,15 @@ val Date.timeMinutes: Int
         time = this@timeMinutes
         minutes
     }
+
+@SuppressLint("SimpleDateFormat")
+fun Date.toDayMonthYear(): String {
+    val formatter: DateFormat = SimpleDateFormat("dd-MM-yyyy")
+    return formatter.format(this)
+}
+
+@SuppressLint("SimpleDateFormat")
+fun Date.toDayMonthYearHour(): String {
+    val formatter: DateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm")
+    return formatter.format(this)
+}
