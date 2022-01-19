@@ -20,12 +20,6 @@ A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-y
-Iapp/src/main/java/com/c3rberuss/androidutils/DownloadManagerExtensions.kt,e/4/e49131a0932d0dfbb2fa1969a7ce50718dc50593
-r
-Bapp/src/main/java/com/c3rberuss/androidutils/adapters/ViewTypes.kt,1/4/147fed18534d7078d4ce63e326669150566f8239
-x
-Happ/src/main/java/com/c3rberuss/androidutils/adapters/BaseListAdapter.kt,9/6/9650a5511663c7e4cd3eb821d2103c6bcf2ac0e3
 ?
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 l
@@ -34,3 +28,7 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ;
 jitpack.yml,3/f/3f384c5ac91d01ea9ab11981ab87f1d958f63284
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+t
+Dapp/src/main/java/com/c3rberuss/androidutils/CollectionExtensions.kt,c\0\c0e24bbc0e0a52c5597627a0c50d3fa395bbd88c

@@ -1,14 +1,9 @@
 package com.c3rberuss.androidutils
 
 import android.annotation.SuppressLint
-import android.content.pm.ActivityInfo
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
-import android.widget.FrameLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
 
 fun View.visible() {
     this.visibility = View.VISIBLE
@@ -20,6 +15,21 @@ fun View.gone() {
 
 fun View.invisible() {
     this.visibility = View.INVISIBLE
+}
+
+fun View.showThisAndHide(viewToHide : View?){
+    this.visible()
+    viewToHide?.gone()
+}
+
+fun View.showThisAndHide(viewsToHide : List<View?>){
+    this.visible()
+    viewsToHide.forEach { view -> view?.gone() }
+}
+
+fun View.hideThisAndShow(viewsToHide : List<View?>){
+    this.gone()
+    viewsToHide.forEach { view -> view?.visible() }
 }
 
 @SuppressLint("UNCHECKED_CAST")
